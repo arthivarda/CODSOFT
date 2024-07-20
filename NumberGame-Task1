@@ -1,0 +1,48 @@
+// Number Game
+
+import java.util.Scanner;
+import java.lang.Math;
+
+// Create a class
+
+public class NumberGame {
+    // main method
+    public static void main(String args[]) 
+    {
+        // generation of a random number between 1 to 100
+        int randomNumber = (int) (Math.random() * 100 ) + 1;
+
+        // trials that user can guess the number
+        int trials = 5;
+
+        // read the input
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Guess the number between 1 to 100\nYou have only 5 trials");
+
+        while (trials > 0) 
+        {
+            System.out.println("Enter the guessed number: ");
+            int guessedNumber = sc.nextInt();
+
+            if (guessedNumber == randomNumber) 
+            {
+                System.out.println("Yeah! Congratulations, your guess is correct");
+                break;
+            } 
+            else if (guessedNumber > randomNumber) 
+            {
+                System.out.println("your guess is too High \nyou have only " + (trials - 1) + " trilas to guess the correct number"  );
+                trials--;
+            } 
+            else
+             {
+                System.out.println("your guess is too Low \nyou have only " + (trials - 1) + " trilas to guess the correct number"  );
+                trials--;
+            }
+        }
+        
+        if (trials == 0) {
+            System.out.println("Sorry you are out of trials\nyou lost");
+        }
+    }
+}
