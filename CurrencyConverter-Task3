@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class CurrencyConverter {
+    public static void displayCurrency() {
+        System.out.println("Currency Converter");
+        System.out.println("1. USA Dollar to Indian Rupee");
+        System.out.println("2. Indian rupee to USA Dollar");
+        System.out.println("3. Europen  Euro to Indian rupee");
+        System.out.println("4. Japanese Yen to Indian rupee");
+        System.out.println("5. EXIT");
+    }
+
+    public static double currencyGet() {
+        System.out.println("Please enter the amount to convert: ");
+        Scanner sc = new Scanner(System.in);
+        double amount = sc.nextDouble();
+        return amount;
+    }
+
+    public static void calculateTheCurrency(int choose, double amount) {
+        switch (choose) {
+            case 1:
+            amount = amount * 83.5; // it converts dollar to rps
+            break;
+            case 2:
+            amount = amount * 0.012; // it converts rupees to dollar
+            break;
+            case 3:
+            amount = amount *91.12; // it converts Euro to Rupees
+            break;
+            case 4:
+            amount = amount * 0.58; // it converts yen to rupees
+            break;
+        }
+        System.out.println("The amount converted: " + amount);
+    }
+    public static void main(String[] args) {
+        int choose;
+        Scanner sc = new Scanner(System.in);
+        do {
+            displayCurrency();
+            System.out.println("choose any number: ");
+            choose = sc.nextInt();
+            switch (choose) {
+                case 1, 2, 3, 4:
+                    double amount = currencyGet();
+                    calculateTheCurrency (choose, amount);
+                    break;
+                case 5:
+                    System.out.println("exist currency converter");
+                    break;
+                default:
+                    System.out.println("Sorry please enter valid Input");
+                    break;
+            }
+        } while (choose != 5);
+    }
+}
